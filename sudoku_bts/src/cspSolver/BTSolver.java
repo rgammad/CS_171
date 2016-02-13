@@ -3,6 +3,7 @@ package cspSolver;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import sudoku.Converter;
 import sudoku.SudokuFile;
@@ -26,6 +27,10 @@ public class BTSolver implements Runnable{
 	// Team Windwolf: MADE startTime && endTime public
 	public long startTime;
 	public long endTime;
+	
+	public long timeout;
+	public long prepStart;
+	public long prepDone;
 	
 	public enum VariableSelectionHeuristic 	{ None, MinimumRemainingValue, Degree };
 	public enum ValueSelectionHeuristic 		{ None, LeastConstrainingValue };
@@ -304,6 +309,8 @@ public class BTSolver implements Runnable{
 		}catch (VariableSelectionException e)
 		{
 			System.out.println("error with variable selection heuristic.");
+		}catch (TimeoutException t){
+			System.out.println("timeout error");
 		}
 		endTime = System.currentTimeMillis();
 		Trail.clearTrail();
@@ -315,7 +322,7 @@ public class BTSolver implements Runnable{
 	 * @throws VariableSelectionException 
 	 */
 
-	private void solve(int level) throws VariableSelectionException
+	private void solve(int level) throws VariableSelectionException, TimeoutException
 	{
 		if(!Thread.currentThread().isInterrupted())
 
@@ -325,6 +332,9 @@ public class BTSolver implements Runnable{
 				return;
 			}
 
+			prepStart = System.currentTimeMillis();
+			prepDone = System.currentTimeMillis();
+			if ((timeout > (prepDone - prepStart) + (System.currentTimeMillis() - startTime))) {
 			//Select unassigned variable
 			Variable v = selectNextVariable();		
 
@@ -372,6 +382,10 @@ public class BTSolver implements Runnable{
 					return;
 				}
 			}	
+			}
+			else{
+				throw new TimeoutException("");
+			}
 		}	
 	}
 

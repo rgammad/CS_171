@@ -12,12 +12,16 @@ public class outputLog {
 	private long searchStartTime;
 	private long searchEndTime;
 	private long sudokuSolveTime;
+	private long prepStart;
+	private long prepDone;
 	private String status;
 	private String solution;
 	private int numAssignments;
 	private int deadEnds;
 	
-	public void setLogTime(long programStart, long searchStart, long searchEnd, long solveTime){
+	public void setLogTime(long prepStart, long prepDone, long programStart, long searchStart, long searchEnd, long solveTime){
+		this.prepStart = prepStart/1000L;
+		this.prepDone = prepDone/1000L;
 		this.startTime = (programStart)/1000L;
 		this.searchStartTime = (searchStart)/1000L;
 		this.searchEndTime = (searchEnd)/1000L;

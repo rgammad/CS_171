@@ -9,25 +9,136 @@ import java.util.concurrent.TimeoutException;
 
 public class main {
 	public static void main(String[] args){
+		long programStartTime = System.currentTimeMillis();
+		long timeout = Long.parseLong(args[2]);
 		
+		boolean statusHasSolution = false;
+		boolean statusTimeout = false;
+		boolean statusSuccess = false;
+		boolean statusError = false;
+		boolean FC = false;
+		boolean ACP = false;
+		boolean MAC = false;
+		boolean MRV = false;
+		boolean DH = false;
+		boolean LCV = false;
+		int argSize = args.length;
 		
+		String[] tokens = new String[args.length - 3];
+		
+		SudokuFile readSF;
+		BTSolver solver;
+			
 		try{
-			if(args[0] == null || args[1] == null || args[2] == null){
+			if (args.length < 3) {
 				throw new ArrayIndexOutOfBoundsException();
-			}
-			else{
-				long programStartTime = System.currentTimeMillis();
-				boolean statusHasSolution = false;
-				boolean statusTimeout = false;
-				boolean statusSuccess = false;
-				boolean statusError = false;
-				
-				SudokuFile readSF = SudokuBoardReader.readFile(args[0]);
-				outputLog output = new outputLog();
-				BTSolver solver = new BTSolver(readSF);
-				solver.setConsistencyChecks(ConsistencyCheck.None);
+			} else {
+				readSF = SudokuBoardReader.readFile(args[0]);
+				solver = new BTSolver(readSF);
+				solver.timeout = timeout;
+
+				int tokenSize = argSize - 3;
+				for (int i = 0; i < tokenSize; i++) {
+					tokens[i] = args[i + 3];
+				}
+				// System.out.println(args[4]);
+				if (tokens.length > 0) {
+					for (String s : tokens) {
+						if (s.equals("FC")) {
+							FC = true;
+						}
+						if (s.equals("ACP")) {
+							ACP = true;
+						}
+						if (s.equals("MRV")) {
+							MRV = true;
+						}
+						if (s.equals("DH")) {
+							DH = true;
+						}
+						if (s.equals("LCV")) {
+							LCV = true;
+						}
+					}
+				}
+				if (FC && !ACP) {
+					solver.setConsistencyChecks(ConsistencyCheck.ForwardChecking);
+				} else if (ACP || FC) {
+					solver.setConsistencyChecks(ConsistencyCheck.ArcConsistency);
+				} else if (MAC || FC || ACP) {
+					// TODO: MAC functionality
+					solver.setConsistencyChecks(ConsistencyCheck.None);
+				} else {
+					solver.setConsistencyChecks(ConsistencyCheck.None);
+				}
+				if (MRV && !DH) {
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.MinimumRemainingValue);
+				} else if (DH && !MRV) {
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.Degree);
+				} else if (DH && MRV) {
+					// TODO: MRV w/ DH tie break functionality
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
+				} else {
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
+				}
+				if (LCV) {
+					solver.setValueSelectionHeuristic(ValueSelectionHeuristic.LeastConstrainingValue);
+				} else {
+					solver.setValueSelectionHeuristic(ValueSelectionHeuristic.None);
+				}
+					
+				if(tokens.length > 0){
+					for(String s: tokens){
+						if(s.equals("FC")){
+							FC = true;
+						}
+						if(s.equals("ACP")){
+							ACP = true;
+						}
+						if(s.equals("MRV")){
+							MRV = true;
+						}
+						if (s.equals("DH")){
+							DH = true;
+						}
+						if(s.equals("LCV")){
+							LCV = true;
+						}
+					}
+				}
+				if(FC && !ACP){
+					solver.setConsistencyChecks(ConsistencyCheck.ForwardChecking);
+				}
+				else if(ACP || FC){
+					solver.setConsistencyChecks(ConsistencyCheck.ArcConsistency);
+				}
+				else if(MAC || FC || ACP){
+					//TODO: MAC functionality
+					solver.setConsistencyChecks(ConsistencyCheck.None);
+				}
+				else{
+					solver.setConsistencyChecks(ConsistencyCheck.None);
+				}
+				if(MRV && !DH){
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.MinimumRemainingValue);
+				}
+				else if(DH && !MRV){
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.Degree);
+				}
+				else if(DH && MRV){
+					//TODO: MRV w/ DH tie break functionality
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
+				}
+				else{
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
+				}
+				if(LCV){
+					solver.setValueSelectionHeuristic(ValueSelectionHeuristic.LeastConstrainingValue);
+				}
+				else{
 				solver.setValueSelectionHeuristic(ValueSelectionHeuristic.None);
-				solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
+				}
+			
 				Thread t1 = new Thread(solver);
 				try
 				{
@@ -60,7 +171,8 @@ public class main {
 				if(!statusTimeout && !statusError){
 					statusSuccess = true;
 				}
-				output.setLogTime(programStartTime, startTime, endTime, solveTime);
+				outputLog output = new outputLog();
+				output.setLogTime(solver.prepStart, solver.prepDone, programStartTime, startTime, endTime, solveTime);
 				output.setStatus(statusSuccess, statusTimeout, statusError);
 				output.getSolution(solver);
 				output.getNodesDeadEnds(solver);
