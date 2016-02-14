@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import sudoku.SudokuFile;
@@ -8,35 +9,37 @@ import cspSolver.BTSolver;
 
 
 public class outputLog {
-	private long startTime;
-	private long searchStartTime;
-	private long searchEndTime;
-	private long sudokuSolveTime;
-	private long prepStart;
-	private long prepDone;
+	private double startTime;
+	private double searchStartTime;
+	private double searchEndTime;
+	private double sudokuSolveTime;
+	private double prepStart;
+	private double prepDone;
 	private String status;
 	private String solution;
 	private int numAssignments;
 	private int deadEnds;
 	
+	DecimalFormat df = new DecimalFormat("#.###");
+	
 	public void setLogTime(long prepStart, long prepDone, long programStart, long searchStart, long searchEnd, long solveTime){
-		this.prepStart = prepStart/1000L;
-		this.prepDone = prepDone/1000L;
-		this.startTime = (programStart)/1000L;
-		this.searchStartTime = (searchStart)/1000L;
-		this.searchEndTime = (searchEnd)/1000L;
-		this.sudokuSolveTime = (solveTime)/1000L;
+		this.prepStart =Double.parseDouble(df.format((System.currentTimeMillis()- prepStart)/1000L));
+		this.prepDone = Double.parseDouble(df.format((System.currentTimeMillis()- prepDone)/1000L));
+		this.startTime = Double.parseDouble(df.format((System.currentTimeMillis()- programStart)/1000L));
+		this.searchStartTime = Double.parseDouble(df.format((System.currentTimeMillis()- searchStart)/1000L));
+		this.searchEndTime = Double.parseDouble(df.format((System.currentTimeMillis()- searchEnd)/1000L));
+		this.sudokuSolveTime = Double.parseDouble(df.format((solveTime)/1000L));
 	}
 	
 	public void setStatus(boolean success, boolean timeout, boolean error){
-		if(success){
-			this.status = "Success";
-		}
-		else if(timeout){
+		if(timeout){
 			this.status = "Timeout";
 		}
 		else if(error){
 			this.status = "Error";
+		}
+		else{
+			this.status = "Success";
 		}
 	}
 	public void getSolution(BTSolver solver){
@@ -82,8 +85,8 @@ public class outputLog {
 		
 		long prepStart = System.currentTimeMillis();
 		logger.info("\nTOTAL_START= " + (this.startTime)
-				+ "\nPREPROCESSING_START=" + prepStart 
-				+ "\nPREPROCESSING_DONE=" + prepStart
+				+ "\nPREPROCESSING_START=" + this.prepStart 
+				+ "\nPREPROCESSING_DONE=" + this.prepStart
 				+ "\nSEARCH_START= " + (this.searchStartTime)
 				+ "\nSEARCH_DONE= " + (this.searchEndTime)
 				+ "\nSOLUTION_TIME=" +(this.sudokuSolveTime)

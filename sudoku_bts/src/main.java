@@ -154,21 +154,26 @@ public class main {
 				}catch(Exception e){
 					statusError = true;
 				}
+				
 				statusHasSolution = solver.hasSolution();
 				long startTime = solver.startTime;
 				long endTime = solver.endTime;
 				long solveTime = solver.getTimeTaken();
 				
 				
-				if(statusHasSolution)
+				/*if(statusHasSolution)
 				{	
 					solver.printSolverStats();
 					System.out.println(solver.getSolution());	
 				}
 				else{
 					System.out.println("Failed to find a solution");
+				}*/
+				if(solver.statusTime){
+					//System.out.println(solver.statusTime);
+					statusTimeout = true;
 				}
-				if(!statusTimeout && !statusError){
+				else if(!statusTimeout && !statusError){
 					statusSuccess = true;
 				}
 				outputLog output = new outputLog();

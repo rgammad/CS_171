@@ -28,6 +28,7 @@ public class BTSolver implements Runnable{
 	public long startTime;
 	public long endTime;
 	
+	public boolean statusTime = false;
 	public long timeout;
 	public long prepStart;
 	public long prepDone;
@@ -321,6 +322,7 @@ public class BTSolver implements Runnable{
 			System.out.println("error with variable selection heuristic.");
 		}catch (TimeoutException t){
 			System.out.println("timeout error");
+			statusTime = true;
 		}
 		endTime = System.currentTimeMillis();
 		Trail.clearTrail();
