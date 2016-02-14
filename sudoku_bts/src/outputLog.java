@@ -81,16 +81,16 @@ public class outputLog {
 		}
 		
 		long prepStart = System.currentTimeMillis();
-		logger.info("\nTOTAL_START=  " + (this.startTime) + " seconds (System Time)"
-				+ "\nPREPROCESSING_START= " + prepStart
-				+ "\nPREPROCESSING_DONE= " + prepStart
-				+ "\nSEARCH_START=  " + (this.searchStartTime) + " seconds (System Time)"
-				+ "\nSEARCH_DONE=  " + (this.searchEndTime) + " seconds (System Time)"
-				+ "\nSOLUTION_TIME= " +(this.sudokuSolveTime) + " seconds (Relative Time)"
-				+ "\nSTATUS= " + this.status
-				+ "\nSOLUTION= " + this.solution
+		logger.info("\nTOTAL_START= " + (this.startTime)
+				+ "\nPREPROCESSING_START=" + prepStart 
+				+ "\nPREPROCESSING_DONE=" + prepStart
+				+ "\nSEARCH_START= " + (this.searchStartTime)
+				+ "\nSEARCH_DONE= " + (this.searchEndTime)
+				+ "\nSOLUTION_TIME=" +(this.sudokuSolveTime)
+				+ "\nSTATUS=" + this.status
+				+ "\nSOLUTION=" + this.solution
 				+ "\nCOUNT_NODES= " + this.numAssignments
-				+ "\nCOUNT_DEADENDS= " + this.deadEnds);
+				+ "\nCOUNT_DEADENDS=" + this.deadEnds);
 
 	}
 }

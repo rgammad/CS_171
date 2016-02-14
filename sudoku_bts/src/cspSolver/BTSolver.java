@@ -172,9 +172,19 @@ public class BTSolver implements Runnable{
 	 */
 	private boolean forwardChecking()
 	{
-		return false;
+		for(Variable v: network.getVariables()){
+			Domain tempDomain = v.getDomain();
+			if(v.isAssigned()){
+				for(Variable vOther: network.getNeighborsOfVariable(v)){
+					vOther.removeValueFromDomain(v.getAssignment());
+					if(vOther.getDomain().size() == 0){
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	}
-	
 	/**
 	 * TODO: Implement Maintaining Arc Consistency.
 	 */
