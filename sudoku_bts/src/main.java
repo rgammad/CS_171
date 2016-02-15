@@ -86,58 +86,6 @@ public class main {
 				} else {
 					solver.setValueSelectionHeuristic(ValueSelectionHeuristic.None);
 				}
-					
-				if(tokens.length > 0){
-					for(String s: tokens){
-						if(s.equals("FC")){
-							FC = true;
-						}
-						if(s.equals("ACP")){
-							ACP = true;
-						}
-						if(s.equals("MRV")){
-							MRV = true;
-						}
-						if (s.equals("DH")){
-							DH = true;
-						}
-						if(s.equals("LCV")){
-							LCV = true;
-						}
-					}
-				}
-				if(FC && !ACP){
-					solver.setConsistencyChecks(ConsistencyCheck.ForwardChecking);
-				}
-				else if(ACP || FC){
-					solver.setConsistencyChecks(ConsistencyCheck.ArcConsistency);
-				}
-				else if(MAC || FC || ACP){
-					//TODO: MAC functionality
-					solver.setConsistencyChecks(ConsistencyCheck.None);
-				}
-				else{
-					solver.setConsistencyChecks(ConsistencyCheck.None);
-				}
-				if(MRV && !DH){
-					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.MinimumRemainingValue);
-				}
-				else if(DH && !MRV){
-					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.Degree);
-				}
-				else if(DH && MRV){
-					//TODO: MRV w/ DH tie break functionality
-					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
-				}
-				else{
-					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
-				}
-				if(LCV){
-					solver.setValueSelectionHeuristic(ValueSelectionHeuristic.LeastConstrainingValue);
-				}
-				else{
-				solver.setValueSelectionHeuristic(ValueSelectionHeuristic.None);
-				}
 			
 				Thread t1 = new Thread(solver);
 				try
