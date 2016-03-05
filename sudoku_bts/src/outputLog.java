@@ -49,7 +49,7 @@ public class outputLog {
 		if(solver.hasSolution()){
 			for(int i = 0; i < solnBoard.getN(); i++){
 				for(int j = 0; j < solnBoard.getN(); j++){
-					retStr += (Integer.toString(sfBoard[i][j]) + ", ");
+					retStr += (Integer.toString(sfBoard[j][i]) + ", ");
 				}
 			}
 		}

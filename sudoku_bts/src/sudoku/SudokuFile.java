@@ -104,7 +104,7 @@ public class SudokuFile {
 		{
 			for(int j = 0; j < N; j++)
 			{
-				sb.append(Odometer.intToOdometer(board[i][j]) + " ");
+				sb.append(Odometer.intToOdometer(board[j][i]) + " ");
 				if((j+1)%q==0 && j!= 0 && j != N-1)
 				{
 					sb.append("| ");

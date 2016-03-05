@@ -1,5 +1,6 @@
 package cspSolver;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -236,20 +237,26 @@ public class BTSolver implements Runnable {
 	 *         if all variables are assigned.
 	 */
 	private Variable getMRV() {
-		int min = network.getVariables().get(0).getDomain().size();
-		for(Variable v: network.getVariables()){
-			Variable retV = v;
-			if(min > v.getDomain().size()){
-				min = v.getDomain().size();
-				retV = v;
-			}
-			//System.out.println(retV);
-			if(!retV.isAssigned()){
-				//System.out.println(retV.Values());
-				return retV;
+		List<Variable> vList = new ArrayList<Variable>();
+		for(Variable v : network.getVariables()){
+			if(!v.isAssigned()){
+				vList.add(v);
 			}
 		}
+		
+		if(!vList.isEmpty()){
+			int minSize = vList.get(0).getDomain().size();
+			Variable minV = vList.get(0);
+			for(int i = 1; i < vList.size(); i++){
+				if(minSize > vList.get(i).getDomain().size()){
+					minSize = vList.get(i).getDomain().size();
+					minV = vList.get(i);
+				}
+			}
+			return minV;
+		}
 		return null;
+		
 	}
 
 	/**
