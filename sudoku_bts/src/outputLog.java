@@ -55,12 +55,13 @@ public class outputLog {
 		}
 		else{
 			for(int i = 0; i < solnBoard.getN(); i++){
-				for(int j = 0; j < solnBoard.getN(); j++){
+				for(int j = 0; j < solnBoard.getN()-1; j++){
 					retStr += ("0, ");
 				}
 				
 			}
 		}
+		retStr = retStr.substring(0,retStr.length()-2);
 		retStr += ")";
 		this.solution =  retStr;
 	}

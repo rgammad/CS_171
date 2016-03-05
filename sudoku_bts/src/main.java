@@ -17,7 +17,7 @@ public class main {
 		boolean statusSuccess = false;
 		boolean statusError = false;
 		boolean FC = false;
-		boolean ACP = false;
+		//boolean ACP = false;
 		boolean MAC = false;
 		boolean MRV = false;
 		boolean DH = false;
@@ -47,9 +47,9 @@ public class main {
 						if (s.equals("FC")) {
 							FC = true;
 						}
-						if (s.equals("ACP")) {
+						/*if (s.equals("ACP")) {
 							ACP = true;
-						}
+						}*/
 						if (s.equals("MRV")) {
 							MRV = true;
 						}
@@ -61,14 +61,16 @@ public class main {
 						}
 					}
 				}
-				if (FC && !ACP) {
+				if (FC){// && !ACP) {
 					solver.setConsistencyChecks(ConsistencyCheck.ForwardChecking);
-				} else if (ACP || FC) {
+				}
+				/*else if (ACP || FC) {
 					solver.setConsistencyChecks(ConsistencyCheck.ArcConsistency);
 				} else if (MAC || FC || ACP) {
 					// TODO: MAC functionality
 					solver.setConsistencyChecks(ConsistencyCheck.None);
-				} else {
+				}*/
+				else {
 					solver.setConsistencyChecks(ConsistencyCheck.None);
 				}
 				if (MRV && !DH) {
