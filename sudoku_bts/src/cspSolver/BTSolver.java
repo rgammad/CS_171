@@ -168,13 +168,9 @@ public class BTSolver implements Runnable{
 		return true;
 	}
 	
-	/**
-	 * TODO: Implement forward checking. 
-	 */
 	private boolean forwardChecking()
 	{
 		for(Variable v: network.getVariables()){
-			Domain tempDomain = v.getDomain();
 			if(v.isAssigned()){
 				for(Variable vOther: network.getNeighborsOfVariable(v)){
 					vOther.removeValueFromDomain(v.getAssignment());
