@@ -3,7 +3,11 @@ package cspSolver;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.concurrent.TimeoutException;
 
 import sudoku.Converter;
@@ -36,7 +40,7 @@ public class BTSolver implements Runnable {
 	public long prepDone;
 
 	public enum VariableSelectionHeuristic {
-		None, MinimumRemainingValue, Degree
+		None, MinimumRemainingValue, Degree, MRVDH
 	};
 
 	public enum ValueSelectionHeuristic {
@@ -208,6 +212,9 @@ public class BTSolver implements Runnable {
 		case Degree:
 			next = getDegree();
 			break;
+		case MRVDH:
+			next = getMRVDH();
+			break;
 		default:
 			next = getfirstUnassignedVariable();
 			break;
@@ -243,7 +250,6 @@ public class BTSolver implements Runnable {
 				vList.add(v);
 			}
 		}
-		
 		if(!vList.isEmpty()){
 			int minSize = vList.get(0).getDomain().size();
 			Variable minV = vList.get(0);
@@ -256,7 +262,6 @@ public class BTSolver implements Runnable {
 			return minV;
 		}
 		return null;
-		
 	}
 
 	/**
@@ -266,18 +271,94 @@ public class BTSolver implements Runnable {
 	 *         all variables are assigned.
 	 */
 	private Variable getDegree() {
+		List<Integer> constraintCount = new ArrayList<Integer>();
+		List<Variable> vList = new ArrayList<Variable>();
 		for(Variable v : network.getVariables()){
-			for(Constraint c : network.getConstraints()){
-				if(!v.isAssigned()){
-					if(c.contains(v)){
-						System.out.println(c);
-						return v;				
+			if(!v.isAssigned()){
+				int count = 0;
+				//for(Constraint c : network.getConstraintsContainingVariable(v)){
+				/*	for(int i = 0; i < c.vars.size(); i++){
+						if(!c.vars.get(i).isAssigned()){
+							count++;
+						}
+					}
+				}*/
+				for(Variable vOther: network.getNeighborsOfVariable(v)){
+					if(!vOther.isAssigned()){
+						count++;
 					}
 				}
+				constraintCount.add(count);
+				vList.add(v);
 			}
+		}
+		//System.out.println(vList.size() + ": "+ constraintCount.size());
+		if(!vList.isEmpty()){
+			/*int max = Collections.max(constraintCount);
+			int index = constraintCount.indexOf(max);
+			//Variable retV = vList.get(index);
+			//System.out.println(retV + ": " + constraintCount + ": "+ index);
+			return vList.get(index);*/
+			int max = constraintCount.get(0);
+			Variable retV = vList.get(0);
+			for(Variable v : vList){
+				int temp = constraintCount.get(vList.indexOf(v));
+				if(max < temp){
+					retV = v;
+					max = temp;
+				}
+			}
+			return retV;
+		}
+		return null;
+		
+		
+	}
+
+	private Variable getMRVDH() {
+		List<Variable> vList = new ArrayList<Variable>();
+		List<Variable> dhList = new ArrayList<Variable>();
+		List<Integer> constraintCount = new ArrayList<Integer>();
+		for (Variable v : network.getVariables()) {
+			if (!v.isAssigned()) {
+				int count = 0;
+
+				for (Variable vOther : network.getNeighborsOfVariable(v)) {
+					if (!vOther.isAssigned()) {
+						count++;
+					}
+				}
+				constraintCount.add(count);
+				vList.add(v);
+			}
+		}
+
+		if (!vList.isEmpty()) {
+			int minSize = vList.get(0).getDomain().size();
+			Variable minV = vList.get(0);
+			for (int i = 1; i < vList.size(); i++) {
+				if (minSize > vList.get(i).getDomain().size()) {
+					minSize = vList.get(i).getDomain().size();
+					minV = vList.get(i);
+				} else if (minSize == vList.get(i).getDomain().size()) {
+					dhList.add(vList.get(i));
+				}
+			}
+
+			int maxDeg = constraintCount.get(0);
+			Variable retV = dhList.get(0);
+			for (Variable v : dhList) {
+				int temp = constraintCount.get(vList.indexOf(v));
+				if (maxDeg < temp) {
+					retV = v;
+					maxDeg = temp;
+				}
+			}
+			return retV;
 		}
 		return null;
 	}
+
 
 	/**
 	 * Value Selection Heuristics. Orders the values in the domain of the
@@ -326,7 +407,29 @@ public class BTSolver implements Runnable {
 	 * TODO: LCV heuristic
 	 */
 	public List<Integer> getValuesLCVOrder(Variable v) {
-		return null;
+		List<Integer> values = v.getDomain().getValues();
+		List<Integer> countVal = new ArrayList<Integer>();
+		Map<Integer,Integer> valueMap = new HashMap<Integer,Integer>();
+		for (int val : values) {
+			int count = 0;
+			for (Variable vOther : network.getNeighborsOfVariable(v)) {
+				if (vOther.isAssigned()) {
+					if (vOther.getAssignment() != val) {
+						count++;
+					}
+				}
+			}
+			countVal.add(count);
+		}
+		for(int i = 0; i < values.size(); i++){
+			valueMap.put(values.get(i), countVal.get(i));
+		}
+		SortedSet<Integer> valueSet = new TreeSet<Integer>(valueMap.keySet());
+		List<Integer> sortedValues = new ArrayList<Integer>();
+		sortedValues.addAll(valueSet);
+		//System.out.println(valueMap.keySet());
+		//System.out.println(countVal);
+		return sortedValues;
 	}
 
 	/**

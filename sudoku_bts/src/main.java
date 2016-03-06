@@ -78,8 +78,7 @@ public class main {
 				} else if (DH && !MRV) {
 					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.Degree);
 				} else if (DH && MRV) {
-					// TODO: MRV w/ DH tie break functionality
-					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
+					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.MRVDH);
 				} else {
 					solver.setVariableSelectionHeuristic(VariableSelectionHeuristic.None);
 				}
