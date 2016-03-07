@@ -17,8 +17,6 @@ public class main {
 		boolean statusSuccess = false;
 		boolean statusError = false;
 		boolean FC = false;
-	
-		boolean MAC = false;
 		boolean MRV = false;
 		boolean DH = false;
 		boolean LCV = false;

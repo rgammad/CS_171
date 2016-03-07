@@ -30,7 +30,6 @@ public class BTSolver implements Runnable {
 
 	private int numAssignments;
 	private int numBacktracks;
-	// Team Windwolf: MADE startTime && endTime public
 	public long startTime;
 	public long endTime;
 
