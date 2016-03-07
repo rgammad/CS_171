@@ -17,7 +17,7 @@ public class main {
 		boolean statusSuccess = false;
 		boolean statusError = false;
 		boolean FC = false;
-		//boolean ACP = false;
+	
 		boolean MAC = false;
 		boolean MRV = false;
 		boolean DH = false;
@@ -41,15 +41,11 @@ public class main {
 				for (int i = 0; i < tokenSize; i++) {
 					tokens[i] = args[i + 3];
 				}
-				// System.out.println(args[4]);
 				if (tokens.length > 0) {
 					for (String s : tokens) {
 						if (s.equals("FC")) {
 							FC = true;
 						}
-						/*if (s.equals("ACP")) {
-							ACP = true;
-						}*/
 						if (s.equals("MRV")) {
 							MRV = true;
 						}
@@ -61,15 +57,9 @@ public class main {
 						}
 					}
 				}
-				if (FC){// && !ACP) {
+				if (FC){
 					solver.setConsistencyChecks(ConsistencyCheck.ForwardChecking);
 				}
-				/*else if (ACP || FC) {
-					solver.setConsistencyChecks(ConsistencyCheck.ArcConsistency);
-				} else if (MAC || FC || ACP) {
-					// TODO: MAC functionality
-					solver.setConsistencyChecks(ConsistencyCheck.None);
-				}*/
 				else {
 					solver.setConsistencyChecks(ConsistencyCheck.None);
 				}
@@ -109,17 +99,8 @@ public class main {
 				long endTime = solver.endTime;
 				long solveTime = solver.getTimeTaken();
 				
-				
-				/*if(statusHasSolution)
-				{	
-					solver.printSolverStats();
-					System.out.println(solver.getSolution());	
-				}
-				else{
-					System.out.println("Failed to find a solution");
-				}*/
+		
 				if(solver.statusTime){
-					//System.out.println(solver.statusTime);
 					statusTimeout = true;
 				}
 				else if(!statusTimeout && !statusError){

@@ -10037,3 +10037,278 @@ COUNT_NODES=1791
 COUNT_DEADENDS=1742</message>
 </record>
 </log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:06</date>
+  <millis>1457318886610</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=1605
+COUNT_DEADENDS=1556</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:15</date>
+  <millis>1457318895223</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=6.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=6.0
+SEARCH_DONE=1.457318895E9
+SOLUTION_TIME=-1.457318889E9
+STATUS=Timeout
+SOLUTION=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+COUNT_NODES=208393
+COUNT_DEADENDS=208371</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:18</date>
+  <millis>1457318898917</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=1605
+COUNT_DEADENDS=1556</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:21</date>
+  <millis>1457318901485</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=1791
+COUNT_DEADENDS=1742</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:23</date>
+  <millis>1457318903612</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=11
+COUNT_DEADENDS=6</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:26</date>
+  <millis>1457318906214</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=9
+COUNT_DEADENDS=5</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:28</date>
+  <millis>1457318908620</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=11
+COUNT_DEADENDS=6</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:31</date>
+  <millis>1457318911056</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=15
+COUNT_DEADENDS=10</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:32</date>
+  <millis>1457318912951</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=13
+COUNT_DEADENDS=8</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:35</date>
+  <millis>1457318915212</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=7
+COUNT_DEADENDS=2</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-03-06T18:48:38</date>
+  <millis>1457318918516</millis>
+  <sequence>0</sequence>
+  <logger>sudoku.output</logger>
+  <level>INFO</level>
+  <class>outputLog</class>
+  <method>writeLog</method>
+  <thread>1</thread>
+  <message>
+TOTAL_START=0.0
+PREPROCESSING_START=0.0
+PREPROCESSING_DONE=0.0
+SEARCH_START=0.0
+SEARCH_DONE=0.0
+SOLUTION_TIME=0.0
+STATUS=Success
+SOLUTION=(4, 8, 3, 9, 2, 1, 6, 5, 7, 9, 6, 7, 3, 4, 5, 8, 2, 1, 2, 5, 1, 8, 7, 6, 4, 9, 3, 5, 4, 8, 1, 3, 2, 9, 7, 6, 7, 2, 9, 5, 6, 4, 1, 3, 8, 1, 3, 6, 7, 9, 8, 2, 4, 5, 3, 7, 2, 6, 8, 9, 5, 1, 4, 8, 1, 4, 2, 5, 3, 7, 6, 9, 6, 9, 5, 4, 1, 7, 3, 8, 2)
+COUNT_NODES=11
+COUNT_DEADENDS=6</message>
+</record>
+</log>
