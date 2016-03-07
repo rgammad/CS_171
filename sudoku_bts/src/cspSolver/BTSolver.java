@@ -291,7 +291,7 @@ public class BTSolver implements Runnable {
 					retVar = var.getKey();
 				}
 			}
-			System.out.println(retVar);
+			//System.out.println(retVar);
 			return retVar;
 		}
 		return null;
@@ -335,7 +335,7 @@ public class BTSolver implements Runnable {
 					maxDeg = temp;
 				}
 			}
-			System.out.println(retV);
+			//System.out.println(retV);
 			return retV;
 		}
 		return null;
