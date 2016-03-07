@@ -245,16 +245,16 @@ public class BTSolver implements Runnable {
 	 */
 	private Variable getMRV() {
 		List<Variable> vList = new ArrayList<Variable>();
-		for(Variable v : network.getVariables()){
-			if(!v.isAssigned()){
+		for (Variable v : network.getVariables()) {
+			if (!v.isAssigned()) {
 				vList.add(v);
 			}
 		}
-		if(!vList.isEmpty()){
+		if (!vList.isEmpty()) {
 			int minSize = vList.get(0).getDomain().size();
 			Variable minV = vList.get(0);
-			for(int i = 1; i < vList.size(); i++){
-				if(minSize > vList.get(i).getDomain().size()){
+			for (int i = 1; i < vList.size(); i++) {
+				if (minSize > vList.get(i).getDomain().size()) {
 					minSize = vList.get(i).getDomain().size();
 					minV = vList.get(i);
 				}
@@ -271,48 +271,30 @@ public class BTSolver implements Runnable {
 	 *         all variables are assigned.
 	 */
 	private Variable getDegree() {
-		List<Integer> constraintCount = new ArrayList<Integer>();
-		List<Variable> vList = new ArrayList<Variable>();
-		for(Variable v : network.getVariables()){
-			if(!v.isAssigned()){
+		Map<Variable, Integer> varMap = new HashMap<Variable, Integer>();
+		for (Variable v : network.getVariables()) {
+			if (!v.isAssigned()) {
 				int count = 0;
-				//for(Constraint c : network.getConstraintsContainingVariable(v)){
-				/*	for(int i = 0; i < c.vars.size(); i++){
-						if(!c.vars.get(i).isAssigned()){
-							count++;
-						}
-					}
-				}*/
-				for(Variable vOther: network.getNeighborsOfVariable(v)){
-					if(!vOther.isAssigned()){
+				for (Variable vOther : network.getNeighborsOfVariable(v)) {
+					if (!vOther.isAssigned()) {
 						count++;
 					}
 				}
-				constraintCount.add(count);
-				vList.add(v);
+				varMap.put(v, count);
 			}
 		}
-		//System.out.println(vList.size() + ": "+ constraintCount.size());
-		if(!vList.isEmpty()){
-			/*int max = Collections.max(constraintCount);
-			int index = constraintCount.indexOf(max);
-			//Variable retV = vList.get(index);
-			//System.out.println(retV + ": " + constraintCount + ": "+ index);
-			return vList.get(index);*/
-			int max = constraintCount.get(0);
-			Variable retV = vList.get(0);
-			for(Variable v : vList){
-				int temp = constraintCount.get(vList.indexOf(v));
-				if(max < temp){
-					retV = v;
-					max = temp;
+		if (!varMap.isEmpty()) {
+			int maxValue = Collections.max(varMap.values());
+			Variable retVar = null;
+			for (Map.Entry<Variable, Integer> var : varMap.entrySet()) {
+				if (var.getValue() == maxValue) {
+					retVar = var.getKey();
 				}
 			}
-			return retV;
+			System.out.println(retVar);
+			return retVar;
 		}
 		return null;
-		
-		
 	}
 
 	private Variable getMRVDH() {
@@ -332,7 +314,6 @@ public class BTSolver implements Runnable {
 				vList.add(v);
 			}
 		}
-
 		if (!vList.isEmpty()) {
 			int minSize = vList.get(0).getDomain().size();
 			Variable minV = vList.get(0);
@@ -344,7 +325,7 @@ public class BTSolver implements Runnable {
 					dhList.add(vList.get(i));
 				}
 			}
-
+			// System.out.println(dhList);
 			int maxDeg = constraintCount.get(0);
 			Variable retV = dhList.get(0);
 			for (Variable v : dhList) {
@@ -354,11 +335,11 @@ public class BTSolver implements Runnable {
 					maxDeg = temp;
 				}
 			}
+			System.out.println(retV);
 			return retV;
 		}
 		return null;
 	}
-
 
 	/**
 	 * Value Selection Heuristics. Orders the values in the domain of the
@@ -424,11 +405,20 @@ public class BTSolver implements Runnable {
 		for(int i = 0; i < values.size(); i++){
 			valueMap.put(values.get(i), countVal.get(i));
 		}
-		SortedSet<Integer> valueSet = new TreeSet<Integer>(valueMap.keySet());
-		List<Integer> sortedValues = new ArrayList<Integer>();
-		sortedValues.addAll(valueSet);
-		//System.out.println(valueMap.keySet());
-		//System.out.println(countVal);
+		List<Integer> sortedValues = new ArrayList<Integer>(valueMap.keySet());
+		final Map<Integer, Integer> mapforComp = valueMap;
+		Collections.sort(sortedValues, 
+				new Comparator<Integer>() {
+					@Override
+						public int compare(Integer i1, Integer i2) {
+									Integer i1Key = i1;
+									Integer i2Key = i2;
+									Integer i1Value = mapforComp.get(i1Key);
+									Integer i2Value = mapforComp.get(i2Key);
+									return i1Value.compareTo(i2Value);
+					}
+		});
+		System.out.println(sortedValues);
 		return sortedValues;
 	}
 
@@ -483,6 +473,7 @@ public class BTSolver implements Runnable {
 			if ((timeout > (prepDone - prepStart) + (System.currentTimeMillis() - startTime))) {
 				// Select unassigned variable
 				Variable v = selectNextVariable();
+				// System.out.println(v);
 
 				// check if the assignment is complete
 				if (v == null) {
