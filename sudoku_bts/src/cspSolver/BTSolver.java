@@ -418,7 +418,8 @@ public class BTSolver implements Runnable {
 									return i1Value.compareTo(i2Value);
 					}
 		});
-		System.out.println(sortedValues);
+		//System.out.println(valueMap + ": " + sortedValues);
+		//System.out.println(sortedValues);
 		return sortedValues;
 	}
 
