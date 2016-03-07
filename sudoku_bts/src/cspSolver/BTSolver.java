@@ -291,7 +291,6 @@ public class BTSolver implements Runnable {
 					retVar = var.getKey();
 				}
 			}
-			//System.out.println(retVar);
 			return retVar;
 		}
 		return null;
@@ -325,7 +324,6 @@ public class BTSolver implements Runnable {
 					dhList.add(vList.get(i));
 				}
 			}
-			// System.out.println(dhList);
 			int maxDeg = constraintCount.get(0);
 			Variable retV = dhList.get(0);
 			for (Variable v : dhList) {
@@ -335,7 +333,6 @@ public class BTSolver implements Runnable {
 					maxDeg = temp;
 				}
 			}
-			//System.out.println(retV);
 			return retV;
 		}
 		return null;
@@ -405,9 +402,8 @@ public class BTSolver implements Runnable {
 		for(int i = 0; i < values.size(); i++){
 			valueMap.put(values.get(i), countVal.get(i));
 		}
-		List<Integer> sortedValues = new ArrayList<Integer>(valueMap.keySet());
 		final Map<Integer, Integer> mapforComp = valueMap;
-		Collections.sort(sortedValues, 
+		Collections.sort(values, 
 				new Comparator<Integer>() {
 					@Override
 						public int compare(Integer i1, Integer i2) {
@@ -418,9 +414,7 @@ public class BTSolver implements Runnable {
 									return i1Value.compareTo(i2Value);
 					}
 		});
-		//System.out.println(valueMap + ": " + sortedValues);
-		//System.out.println(sortedValues);
-		return sortedValues;
+		return values;
 	}
 
 	/**
@@ -474,7 +468,6 @@ public class BTSolver implements Runnable {
 			if ((timeout > (prepDone - prepStart) + (System.currentTimeMillis() - startTime))) {
 				// Select unassigned variable
 				Variable v = selectNextVariable();
-				// System.out.println(v);
 
 				// check if the assignment is complete
 				if (v == null) {
