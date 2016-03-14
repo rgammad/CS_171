@@ -13,10 +13,11 @@ public class SudokuFileExample {
 
 	public static void main(String[] args)
 	{
-		int N = 24;
-		int p = 4;
-		int q = 6;
-		int m = 24;
+
+		int N = 35;
+		int p = 5;
+		int q = 7;
+		int m = 303;
 		for(int i = 1; i <= 10; i++){
 			File file = new File("C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test/Part_4/N"+N+"/N"+N+"_" + i  + ".txt");
 			SudokuFile gSF1 = SudokuBoardGenerator.generateBoard(N, p, q, m);

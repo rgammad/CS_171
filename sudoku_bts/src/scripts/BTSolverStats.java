@@ -36,12 +36,12 @@ public class BTSolverStats {
 		solver.setConsistencyChecks(cc);
 		solver.setValueSelectionHeuristic(valsh);
 		solver.setVariableSelectionHeuristic(varsh);
-		long timeout = 30000;
+		long timeout = 60000;
 		solver.timeout = timeout;
 		Thread t1 = new Thread(solver);
 		try {
 			t1.start();
-			t1.join(60000);
+			t1.join(timeout);
 			if (t1.isAlive()) {
 				t1.interrupt();
 			}
@@ -65,21 +65,21 @@ public class BTSolverStats {
 		List<Integer> N = Arrays.asList(12, 15, 16, 18, 20, 21, 24, 27, 28, 30, 32, 35);
 		List<Integer> M = Arrays.asList(4,8,12,16,17,18,19,20,21,22,24,28,32,36);
 		
-		for (int m: M) {
+		for (int n: N) {
 			int count = 1;
 			File results = new File(
-					"C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test_results/Part_3/M" + m
+					"C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test_results/Part_4/N" + n
 							+ "Results.txt");
 			File summary = new File(
-					"C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test_results/Part_3/M" + m
+					"C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test_results/Part_4/N" +n
 							+ "Summary" + count++ + ".txt");
 			count = 1;
-			File folder = new File("C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test/Part_3/M" + m);
+			File folder = new File("C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test/Part_4/N" + n);
 			List<SudokuFile> puzzles = getPuzzlesFromFolder(folder);
 			List<runStats> statistics = new ArrayList<runStats>();
 
 			puzzles = puzzles.subList(0, 10);
-			System.out.println("Puzzle: M"+m);
+			System.out.println("Puzzle: N"+n);
 			for (SudokuFile sf : puzzles) {
 				BTSolver solver = new BTSolver(sf);
 				statistics.add(testSolver(solver));

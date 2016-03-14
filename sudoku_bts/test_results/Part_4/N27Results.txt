@@ -1,0 +1,10 @@
+puzzle71:-1457934799436 ms, 5729 assignments, 5334 backtracks Not a Solution
+puzzle72:-1457934859437 ms, 12984 assignments, 12434 backtracks Not a Solution
+puzzle73:-1457934919438 ms, 6510 assignments, 5633 backtracks Not a Solution
+puzzle74:-1457934981444 ms, 16150 assignments, 16107 backtracks Not a Solution
+puzzle75:-1457935041445 ms, 6447 assignments, 6060 backtracks Not a Solution
+puzzle76:-1457935101446 ms, 10221 assignments, 9556 backtracks Not a Solution
+puzzle77:-1457935161447 ms, 8475 assignments, 7535 backtracks Not a Solution
+puzzle78:21206 ms, 4736 assignments, 4736 backtracks Not a Solution
+puzzle79:-1457935242655 ms, 10019 assignments, 9787 backtracks Not a Solution
+puzzle80:-1457935302656 ms, 7362 assignments, 6859 backtracks Not a Solution

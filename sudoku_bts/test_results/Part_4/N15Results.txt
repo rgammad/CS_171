@@ -1,10 +1,10 @@
-puzzle11:75 ms, 131 assignments, 3 backtracks
-puzzle12:106 ms, 163 assignments, 45 backtracks
-puzzle13:329 ms, 134 assignments, 5 backtracks
-puzzle14:85 ms, 150 assignments, 21 backtracks
-puzzle15:87 ms, 144 assignments, 20 backtracks
-puzzle16:84 ms, 149 assignments, 22 backtracks
-puzzle17:94 ms, 164 assignments, 44 backtracks
-puzzle18:986 ms, 1416 assignments, 1291 backtracks
-puzzle19:106 ms, 157 assignments, 26 backtracks
-puzzle20:92 ms, 152 assignments, 20 backtracks
+puzzle11:84 ms, 118 assignments, 36 backtracks
+puzzle12:60000 ms, 85339 assignments, 85262 backtracks Not a Solution
+puzzle13:169 ms, 242 assignments, 161 backtracks
+puzzle14:624 ms, 378 assignments, 295 backtracks
+puzzle15:1733 ms, 1851 assignments, 1769 backtracks
+puzzle16:-1457932563600 ms, 66441 assignments, 66361 backtracks Not a Solution
+puzzle17:-1457932623601 ms, 58047 assignments, 57915 backtracks Not a Solution
+puzzle18:290 ms, 642 assignments, 642 backtracks Not a Solution
+puzzle19:5216 ms, 5856 assignments, 5781 backtracks
+puzzle20:60000 ms, 47601 assignments, 47520 backtracks Not a Solution
