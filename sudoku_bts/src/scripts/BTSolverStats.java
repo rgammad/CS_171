@@ -62,24 +62,22 @@ public class BTSolverStats {
 
 	public static void main(String[] args) {
 		String sep = System.getProperty("line.separator");
-		List<Integer> N = Arrays.asList(12, 15, 16, 18, 20, 21, 24, 27, 28, 30, 32, 35);
-		List<Integer> M = Arrays.asList(4,8,12,16,17,18,19,20,21,22,24,28,32,36);
-		
-		for (int n: N) {
+		List<Integer> M = Arrays.asList(16, 32, 48, 64, 68, 72, 76, 80, 84, 88, 96, 112, 128, 144);
+		for(int m : M){
 			int count = 1;
 			File results = new File(
-					"C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test_results/Part_4/N" + n
+					"C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test_results/Part_5/M" + m
 							+ "Results.txt");
 			File summary = new File(
-					"C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test_results/Part_4/N" +n
+					"C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test_results/Part_5/M" +m
 							+ "Summary" + count++ + ".txt");
 			count = 1;
-			File folder = new File("C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test/Part_4/N" + n);
+			File folder = new File("C:/Users/Roldan/Documents/Eclipse_Workspace/CS_171/sudoku_bts/test/Part_5/M" + m);
 			List<SudokuFile> puzzles = getPuzzlesFromFolder(folder);
 			List<runStats> statistics = new ArrayList<runStats>();
 
 			puzzles = puzzles.subList(0, 10);
-			System.out.println("Puzzle: N"+n);
+			System.out.println("Puzzle: M"+m);
 			for (SudokuFile sf : puzzles) {
 				BTSolver solver = new BTSolver(sf);
 				statistics.add(testSolver(solver));

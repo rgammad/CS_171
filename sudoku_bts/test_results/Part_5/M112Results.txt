@@ -1,0 +1,10 @@
+puzzle111:60002 ms, 32116 assignments, 32066 backtracks Not a Solution
+puzzle112:60000 ms, 48668 assignments, 48643 backtracks Not a Solution
+puzzle113:60001 ms, 56197 assignments, 56140 backtracks Not a Solution
+puzzle114:60002 ms, 48498 assignments, 48454 backtracks Not a Solution
+puzzle115:60001 ms, 55494 assignments, 55454 backtracks Not a Solution
+puzzle116:60005 ms, 30205 assignments, 30135 backtracks Not a Solution
+puzzle117:60001 ms, 40954 assignments, 40888 backtracks Not a Solution
+puzzle118:60000 ms, 38619 assignments, 38567 backtracks Not a Solution
+puzzle119:60000 ms, 32286 assignments, 32220 backtracks Not a Solution
+puzzle120:60000 ms, 40803 assignments, 40754 backtracks Not a Solution
