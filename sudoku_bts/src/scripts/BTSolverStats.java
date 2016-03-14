@@ -41,7 +41,7 @@ public class BTSolverStats {
 		Thread t1 = new Thread(solver);
 		try {
 			t1.start();
-			t1.join(timeout);
+			t1.join(600000000);
 			if (t1.isAlive()) {
 				t1.interrupt();
 			}
