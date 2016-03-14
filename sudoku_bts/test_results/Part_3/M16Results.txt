@@ -1,0 +1,10 @@
+puzzle31:3 ms, 30 assignments, 4 backtracks
+puzzle32:4 ms, 40 assignments, 11 backtracks
+puzzle33:3 ms, 35 assignments, 8 backtracks
+puzzle34:3 ms, 26 assignments, 1 backtracks
+puzzle35:3 ms, 33 assignments, 6 backtracks
+puzzle36:3 ms, 29 assignments, 2 backtracks
+puzzle37:4 ms, 28 assignments, 1 backtracks
+puzzle38:30000 ms, 231299 assignments, 231276 backtracks Not a Solution
+puzzle39:120 ms, 1464 assignments, 1464 backtracks Not a Solution
+puzzle40:4 ms, 30 assignments, 3 backtracks

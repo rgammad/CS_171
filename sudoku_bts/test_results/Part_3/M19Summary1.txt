@@ -1,0 +1,4 @@
+Consistency Check: ForwardChecking
+ValueSelectionHeuristic: None
+VariableSelectionHeuristic: MinimumRemainingValue
+Solution found for 7/10puzzles

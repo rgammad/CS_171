@@ -93,21 +93,20 @@ public class SudokuFile {
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("N: ");
 		sb.append(N);
-		sb.append("\tP: ");
+		sb.append(" ");
 		sb.append(p);
-		sb.append("\tQ: ");
+		sb.append(" ");
 		sb.append(q);
 		sb.append("\n");
 		for(int i = 0; i < N; i ++)
 		{
 			for(int j = 0; j < N; j++)
 			{
-				sb.append(Odometer.intToOdometer(board[j][i]) + " ");
+				sb.append(Odometer.intToOdometer(board[i][j]) + " ");
 				if((j+1)%q==0 && j!= 0 && j != N-1)
 				{
-					sb.append("| ");
+					sb.append("");
 				}
 			}
 			sb.append("\n");
@@ -115,9 +114,9 @@ public class SudokuFile {
 			{
 				for(int k = 0; k < N+p-1;k++)
 				{
-					sb.append("- ");
+					sb.append("");
 				}
-				sb.append("\n");
+				//sb.append("\n");
 			}
 		}
 		return sb.toString();

@@ -97,6 +97,13 @@ public class main {
 				long endTime = solver.endTime;
 				long solveTime = solver.getTimeTaken();
 				
+				if (statusHasSolution) {
+					solver.printSolverStats();
+					System.out.println(solver.getSolution());
+				}
+				else {
+					System.out.println("Failed to find a solution");
+				}
 		
 				if(solver.statusTime){
 					statusTimeout = true;

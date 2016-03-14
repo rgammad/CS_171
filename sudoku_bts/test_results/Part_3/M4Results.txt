@@ -1,0 +1,10 @@
+puzzle1:44 ms, 45 assignments, 1 backtracks
+puzzle2:25 ms, 45 assignments, 3 backtracks
+puzzle3:11 ms, 39 assignments, 1 backtracks
+puzzle4:19 ms, 44 assignments, 2 backtracks
+puzzle5:17 ms, 48 assignments, 4 backtracks
+puzzle6:14 ms, 48 assignments, 5 backtracks
+puzzle7:7 ms, 47 assignments, 4 backtracks
+puzzle8:6 ms, 44 assignments, 1 backtracks
+puzzle9:6 ms, 44 assignments, 0 backtracks
+puzzle10:12 ms, 50 assignments, 5 backtracks

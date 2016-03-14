@@ -33,13 +33,13 @@ public class outputLog {
 	
 	public void setStatus(boolean success, boolean timeout, boolean error){
 		if(timeout){
-			this.status = "Timeout";
+			this.status = "TIMEOUT";
 		}
 		else if(error){
-			this.status = "Error";
+			this.status = "ERROR";
 		}
 		else{
-			this.status = "Success";
+			this.status = "SUCCESS";
 		}
 	}
 	public void getSolution(BTSolver solver){
@@ -94,7 +94,9 @@ public class outputLog {
 				+ "\nSTATUS=" + this.status
 				+ "\nSOLUTION=" + this.solution
 				+ "\nCOUNT_NODES=" + this.numAssignments
-				+ "\nCOUNT_DEADENDS=" + this.deadEnds);
+				+ "\nCOUNT_DEADENDS=" + this.deadEnds
+				+"\n"
+				);
 
 	}
 }
